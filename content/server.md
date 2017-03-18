@@ -10,6 +10,10 @@
 
 * There should be no port numbers in source code except as optional default values.
 
+* Client and server projects should always be stored in separate repositories.
+
+* Never use IP tables for routing HTTP packets.  Use an HTTP daemon or external service for that.
+
 ## Configuration
 
 * Every server project should have a ```config``` folder with configuration files.
@@ -46,7 +50,13 @@
 
 * Unless a web service is only consumed by a single website or by an internal server infrastructure, web services must support versioning and have a required version parameter.
 
-* Web service URLs should be all lowercase and use hyphens to separate words.
+* Web service URLs should be only lowercase and use hyphens to separate words.
+
+* Web service URL paths must be distinctly separate from static content URL paths.
+
+    * Bad: ```/images/``` and ```/users```
+    
+    * Good:  ```/images/``` and ```/api/users```
 
 ### Implementation
 
@@ -68,3 +78,7 @@
     
     * [Vineyard Lawn](https://github.com/silentorb/vineyard-lawn) is a thin web service layer that provides all of these features.
    
+### Node.js Specific
+
+* Never serve static content from Node.js.  Use a dedicated HTTP daemon like Nginx or Apache.
+
