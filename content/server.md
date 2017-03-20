@@ -1,8 +1,6 @@
 # Server Development Guidelines
 
-## General
-
-* A server project should not be platform specific. It needs to work on Linux, Mac, and Windows.
+## Code
 
 * Aside for a single entry point like index.js, source code files should not be in the root folder of a project
 
@@ -10,9 +8,13 @@
 
 * There should be no port numbers in source code except as optional default values.
 
+## Architecture
+
 * Client and server projects should always be stored in separate repositories.
 
-* Never use IP tables for routing HTTP packets.  Use an HTTP daemon or external service for that.
+* Aside for legacy projects and synchronizing web sockets across Node.js clusters, do not use Redis!  Whatever problem you are trying to solve with Redis, there is a better tool for the job.
+
+* IP table customization should only be used for an extra layer of security after an external firewall.  Do not use IP tables for any form of routing or logic.
 
 ## Configuration
 
@@ -28,9 +30,15 @@
 
 * A default configuration has ```-default``` appended to the file name such as ```config-default.json```.  Default configuration files are loaded first and then overrided by an optional configuration file.
 
-* A sample configuration file has ```-sample``` appended to the file name such as ```config-sample.json```.  Sample configuration files are not read by the server. A copy of them must be created without the ```-sample``` prefix for the server to run.
+* A sample configuration file has ```-sample``` appended to the file name such as ```config-sample.json```.  Sample configuration files are not read by the server. A copy without ```-sample``` must be created for the server to run.
 
 * Configuration should not be stored in OS environment variables.
+
+## Development
+
+* A server project only needs to run on Linux for production, but should support Linux, Mac, and Windows for local development.
+
+* A server project that cannot be run and tested locally is broken and not ready for production use.
 
 ## Web Services
 
@@ -57,6 +65,10 @@
     * Bad: ```/images/``` and ```/users```
     
     * Good:  ```/images/``` and ```/api/users```
+    
+* Never pass sensitive data such as user credentials in a url.  Pass sensitive data through the HTTP body.
+
+* Do not pass credentials on every request.  Use a temporary, volatile authentication method such sessions or tokens.
 
 ### Implementation
 
@@ -78,7 +90,7 @@
     
     * [Vineyard Lawn](https://github.com/silentorb/vineyard-lawn) is a thin web service layer that provides all of these features.
    
-### Node.js Specific
+### Node.js
 
 * Never serve static content from Node.js.  Use a dedicated HTTP daemon like Nginx or Apache.
 
