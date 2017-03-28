@@ -1,21 +1,5 @@
 # Server Development Guidelines
 
-## Code
-
-* Aside for a single entry point like index.js, source code files should not be in the root folder of a project
-
-* There should be no IP addresses or URLs in source code.
-
-* There should be no port numbers in source code except as optional default values.
-
-## Architecture
-
-* Client and server projects should always be stored in separate repositories.
-
-* Aside for legacy projects and synchronizing web sockets across Node.js clusters, do not use Redis!  Whatever problem you are trying to solve with Redis, there is a better tool for the job.
-
-* IP table customization should only be used for an extra layer of security after an external firewall.  Do not use IP tables for any form of routing or logic.
-
 ## Configuration
 
 * Every server project should have a ```config``` folder with configuration files.
@@ -34,11 +18,13 @@
 
 * Configuration should not be stored in OS environment variables.
 
+
 ## Development
 
 * A server project only needs to run on Linux for production, but should support Linux, Mac, and Windows for local development.
 
 * A server project that cannot be run and tested locally is broken and not ready for production use.
+
 
 ## Web Services
 
@@ -68,7 +54,8 @@
     
 * Never pass sensitive data such as user credentials in a url.  Pass sensitive data through the HTTP body.
 
-* Do not pass credentials on every request.  Use a temporary, volatile authentication method such sessions or tokens.
+* Do not pass credentials on every request.  Use sessions/tokens.
+
 
 ### Implementation
 
@@ -89,7 +76,26 @@
     * When the response code catches an exception without an HTTP status code, the response status code should be ```500```.     
     
     * [Vineyard Lawn](https://github.com/silentorb/vineyard-lawn) is a thin web service layer that provides all of these features.
-   
+
+
+## Code
+
+* Aside for a single entry point like index.js, source code files should not be in the root folder of a project
+
+* There should be no IP addresses or URLs in source code.
+
+* There should be no port numbers in source code except as optional default values.
+
+
+## Architecture
+
+* Client and server projects should always be stored in separate repositories.
+
+* Aside for legacy projects and synchronizing web sockets across Node.js clusters, do not use Redis!  Whatever problem you are trying to solve with Redis, there is a better tool for the job.
+
+* IP table customization should only be used for an extra layer of security after an external firewall.  Do not use IP tables for any form of routing or logic.
+
+
 ### Node.js
 
 * Never serve static content from Node.js.  Use a dedicated HTTP daemon like Nginx or Apache.
@@ -103,3 +109,5 @@
     * BAD: ">=2.0.1"
 
     * VERY BAD: "*"
+
+* Changing the major version of a dependency requires incrementing the major version of any dependent module.
