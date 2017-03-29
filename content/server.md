@@ -100,7 +100,7 @@
 
 * Client and server projects should always be stored in separate repositories.
 
-* Aside for legacy projects and synchronizing web sockets across Node.js clusters, do not use Redis!  Whatever problem you are trying to solve with Redis, there is a better tool for the job.
+* Aside for legacy projects and synchronizing client connections across Node.js clusters, do not use Redis!  Whatever problem you are trying to solve with Redis, there is a better tool for the job.
 
 * IP table customization should only be used for an extra layer of security after an external firewall.  Do not use IP tables for any form of routing or logic.
 
@@ -120,3 +120,5 @@
     * VERY BAD: "*"
 
 * Changing the major version of a dependency requires incrementing the major version of any dependent module.
+
+* This is not a universal convention, but packages you create that have a major version number of zero should be considered alpha or beta. (Example: 0.5.3)
