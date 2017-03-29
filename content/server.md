@@ -44,18 +44,27 @@
 
 * Unless a web service is only consumed by a single website or by an internal server infrastructure, web services must support versioning and have a required version parameter.
 
-* Web service URLs should be only lowercase and use hyphens to separate words.
+* Web service URLs should be only lowercase and use hyphens to separate words.  Do not use underscores in URLs.
 
 * Web service URL paths must be distinctly separate from static content URL paths.
 
-    * Bad: ```/images/``` and ```/users```
+    * Bad: `/images/` and `/users`
     
-    * Good:  ```/images/``` and ```/api/users```
+    * Good:  `/images/` and `/api/users`
     
 * Never pass sensitive data such as user credentials in a url.  Pass sensitive data through the HTTP body.
 
 * Do not pass credentials on every request.  Use sessions/tokens.
 
+* The interface of an HTTP `get` request should be treated as immutable.  In other words, the public functionality of an HTTP `get` request should never modify server state.  Under the hood the server can change server state when handling a `get` request such as caching `get` responses.
+ 
+* URL paths should always place nouns before verbs.
+    
+    * Bad: `run/app`
+    
+    * Good: `app/run`
+    
+* Keep in mind that while tradition has been to write HTTP keywords in all caps, the official HTTP 1 spec is case-insensitive, and the HTTP 2 spec is exclusively lowercase. The future convention of HTTP will be to write `post`, not `POST`. 
 
 ### Implementation
 
