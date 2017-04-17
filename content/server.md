@@ -105,7 +105,7 @@
 
 ### Node.js
 
-* Never serve static content from Node.js.  Use a dedicated HTTP daemon like Nginx or Apache.
+* Do not serve static content from Node.js.  Use a dedicated HTTP daemon like Nginx or Apache.
 
 * Always lock dependencies to a major version using either exact versions or the carot symbol
 
