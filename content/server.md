@@ -12,7 +12,7 @@
 
 * For every configuration file a server uses, there should be either a default or sample configuration file.  These files should not be edited on deployment.
 
-* A default configuration has ```-default``` appended to the file name such as ```config-default.json```.  Default configuration files are loaded first and then overrided by an optional configuration file.
+* A default configuration has ```-default``` appended to the file name such as ```config-default.json```.  Default configuration files are loaded first and then overriden by an optional configuration file.
 
 * A sample configuration file has ```-sample``` appended to the file name such as ```config-sample.json```.  Sample configuration files are not read by the server. A copy without ```-sample``` must be created for the server to run.
 
