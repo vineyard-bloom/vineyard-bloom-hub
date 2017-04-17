@@ -44,8 +44,6 @@
 
 * Unless a web service is only consumed by a single website or by an internal server infrastructure, web services must support versioning and have a required version parameter.
 
-* Web service URLs should be only lowercase and use hyphens to separate words.  Do not use underscores in URLs.
-
 * Web service URL paths must be distinctly separate from static content URL paths.
 
     * Bad: `/images/` and `/users`
