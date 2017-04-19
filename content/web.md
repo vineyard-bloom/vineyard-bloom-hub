@@ -40,7 +40,6 @@ src/
 	     page2.jsx
 	  component1.jsx
 	  component2.jsx
-	  
    actions.jsx
    store.jsx
    config.js
