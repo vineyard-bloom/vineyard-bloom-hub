@@ -14,6 +14,8 @@
 
 * Axios - Promise based HTTP client
 
+* Bootstrap - Javascript front-end Framwork
+
 * ECMAScript 6 (ES6)
 
 * JSX
@@ -33,8 +35,8 @@
 * This file structure is for a basic webapp.  If you need more separation with redux, you can also group actions and reducers into a respective folder
 
 ```
-public/ *auto generated*
 src/
+   public/ 
    components/
       pages/
 	     main.jsx
@@ -47,7 +49,7 @@ src/
    store.jsx
    config.js
    index.html
-   index.js
+   app.js
 .babelrc
 package.json
 webpack.config.js
@@ -55,7 +57,7 @@ webpack.config.js
 
 ## Project Setup
 
-* First create your directory
+### Creating your directory
 ```
 mkdir *project name*
 ```
@@ -67,6 +69,8 @@ cd *project name*
 ```
 npm init
 ```
+
+### Webpack/babel
 ```
 npm i --save-dev webpack webpack-dev-server
 ```
@@ -80,16 +84,16 @@ npm i --save-dev webpack webpack-dev-server
 module.exports = {
   context: __dirname + "/app",
 
-  entry: "./js/app.js",
+  entry: "./src/index.js",
 
   output: {
-    filename: "app.js",
-    path: __dirname + "/public",
+    filename: "bundle.js",
+    path: __dirname + "public",
   }
 };
 ```
 
-* This tells webpack that our main application file (app.js) is the entry point and the bundled application should be output to the public folder
+* This tells webpack that our main application file (index.js) is the entry point and the bundled application should be output to the public folder
 
 * Next we need to add Babel
 ```npm i --save-dev babel-loader babel-core babel-preset-es2015 babel-preset-react```
@@ -124,6 +128,13 @@ touch .babelrc
   }
 ...
 ```
+
+### React
+```
+npm i react react-dom --save
+```
+
+
 
 
 
