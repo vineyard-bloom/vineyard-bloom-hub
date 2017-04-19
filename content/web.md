@@ -35,8 +35,8 @@
 * This file structure is for a basic webapp.  If you need more separation with redux, you can also group actions and reducers into a respective folder
 
 ```
+public/ 
 src/
-   public/ 
    components/
       pages/
 	     main.jsx
@@ -82,10 +82,7 @@ npm i --save-dev webpack webpack-dev-server
 
 ```
 module.exports = {
-  context: __dirname + "/app",
-
   entry: "./src/index.js",
-
   output: {
     filename: "bundle.js",
     path: __dirname + "public",
@@ -119,20 +116,88 @@ touch .babelrc
   },
   module: {
     loaders: [
-      {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        loaders: ["babel-loader"]
-      }
+      { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
+      { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ }
     ]
   }
 ...
 ```
 
-### React
+### React & React Router
+* Let's create our web app! 
 ```
-npm i react react-dom --save
+npm i react react-dom react-router --save
 ```
+* create a file named 'main.jsx' inside 'src/components/pages' and put a simple page inside
+
+```
+import React from 'react';
+import { render } from 'react-dom';
+
+class Main extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {  }
+    }
+
+    componentDidMount() {
+    }
+
+
+    render() {
+        return <div>
+            My React Site!
+        </div>
+    }
+}
+
+```
+
+* In your 'src/' folder create a file called 'index.jsx' this is where all the routing will be handled.  Add this code to it
+```
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter, Route } from 'react-router-dom'
+import Main from './components/pages/main.jsx';
+
+class App extends React.Component {
+
+
+    render() {
+        return (
+            <BrowserRouter>
+                <Route path='/' component={Main}/>
+            </BrowserRouter>
+        )
+    }
+}
+
+
+export default App
+
+ReactDOM.render(<App />,document.getElementById('root'));
+
+
+```
+* In your 'public/' folder create a file called 'index.html' this is the main layout for the web app.  Add this code to it
+```
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Bitcoin.com News for Android</title>
+</head>
+<body>
+<div id="root">
+
+</div>
+</body>
+</html>
+```
+
+
+
 
 
 
