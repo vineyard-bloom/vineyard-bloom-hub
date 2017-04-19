@@ -35,7 +35,8 @@
 * This file structure is for a basic webapp.  If you need more separation with redux, you can also group actions and reducers into a respective folder
 
 ```
-public/ 
+public/
+   index.html
 src/
    components/
       pages/
@@ -48,7 +49,6 @@ src/
    reducer.jsx
    store.jsx
    config.js
-   index.html
    app.js
 .babelrc
 package.json
@@ -81,16 +81,33 @@ npm i --save-dev webpack webpack-dev-server
 * Inside 'webpack.config.js' add this code
 
 ```
+const path = require('path');
+const BUILD_DIR = path.join(__dirname, 'public/');
+const APP_DIR = path.join(__dirname, 'src/');
 module.exports = {
-  entry: "./src/index.js",
-  output: {
-    filename: "bundle.js",
-    path: __dirname + "public",
-  }
+    entry: APP_DIR + "/index.jsx",
+    output: {
+        filename: "bundle.js",
+        path: BUILD_DIR,
+    },
+    resolve: {
+        extensions: ['.js', '.jsx', '.json']
+    },
+    module: {
+        loaders: [
+            { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
+            { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ }
+        ]
+    },
+    devServer: {
+        publicPath: "/",
+        contentBase: "./public",
+        hot: true
+    },
 };
 ```
 
-* This tells webpack that our main application file (index.js) is the entry point and the bundled application should be output to the public folder
+* This tells webpack that our main application file (index.jsx) is the entry point and the bundled application should be output to the public folder
 
 * Next we need to add Babel
 ```npm i --save-dev babel-loader babel-core babel-preset-es2015 babel-preset-react```
@@ -108,25 +125,10 @@ touch .babelrc
 }
 ```
 
-* Also, add a js/jsx loader to your 'webpack.config.js' file
-```
-...
-  resolve: {
-    extensions: ['', '.js', '.jsx', '.json']
-  },
-  module: {
-    loaders: [
-      { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
-      { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ }
-    ]
-  }
-...
-```
-
 ### React & React Router
 * Let's create our web app! 
 ```
-npm i react react-dom react-router --save
+npm i react react-dom react-router react-router-dom --save
 ```
 * create a file named 'main.jsx' inside 'src/components/pages' and put a simple page inside
 
@@ -198,7 +200,13 @@ ReactDOM.render(<App />,document.getElementById('root'));
 
 
 
-
+* In your package.json file add two 'scripts' entries:
+```
+"dev": "webpack-dev-server",
+```
+```
+"start": "webpack -w"
+```
 
 * Now run 'npm run start' and you should see 'My React Site!' displayed on the page
 
