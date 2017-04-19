@@ -186,7 +186,7 @@ ReactDOM.render(<App />,document.getElementById('root'));
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Bitcoin.com News for Android</title>
+    <title>Website Title</title>
 </head>
 <body>
 <div id="root">
@@ -197,6 +197,10 @@ ReactDOM.render(<App />,document.getElementById('root'));
 ```
 
 
+
+
+
+* Now run 'npm run start' and you should see 'My React Site!' displayed on the page
 
 
 
