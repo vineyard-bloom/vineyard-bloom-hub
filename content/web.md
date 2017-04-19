@@ -8,7 +8,7 @@
 
 * Webpack - Module bundler which takes modules with dependencies and generates static assets by bundling them together based on some configuration
 
-* Babel - 5
+* Babel - Javacript compiler
 
 * Redux - A predictable state container for JavaScript apps
 
@@ -30,6 +30,8 @@
 
 ## Project Structure
 
+* This file structure is for a basic webapp.  If you need more separation with redux, you can also group actions and reducers into a respective folder
+
 ```
 public/ *auto generated*
 src/
@@ -50,6 +52,39 @@ src/
 package.json
 webpack.config.js
 ```
+
+## Project Setup
+
+* First create your directory
+```mkdir *project name*```
+```cd *project name*```
+
+* Next initialize npm and start adding packages
+```npm init```
+```npm i --save-dev webpack webpack-dev-server```
+
+* Now we need to create a webpack config file
+```touch webpack.config.js```
+
+* Inside 'webpack.config.js' add this code
+
+```module.exports = {
+  context: __dirname + "/app",
+
+  entry: "./js/app.js",
+
+  output: {
+    filename: "app.js",
+    path: __dirname + "/public",
+  }
+};```
+
+* This tells webpack that our main application file (app.js) is the entry point and the bundled application should be output to the public folder
+
+
+
+
+
 
 
 
