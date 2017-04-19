@@ -36,6 +36,8 @@
 
 ```
 public/
+   styles/
+      main.css
    index.html
 src/
    components/
@@ -191,6 +193,7 @@ ReactDOM.render(<App />,document.getElementById('root'));
 <html>
 <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="style/main.css">
     <title>Website Title</title>
 </head>
 <body>
