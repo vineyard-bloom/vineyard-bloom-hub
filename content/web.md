@@ -41,6 +41,7 @@ src/
 	  component1.jsx
 	  component2.jsx
    actions.jsx
+   reducer.jsx
    store.jsx
    config.js
    index.html
