@@ -70,7 +70,7 @@ cd *project name*
 npm init
 ```
 
-### Webpack/babel
+### Webpack/Babel
 ```
 npm i --save-dev webpack webpack-dev-server
 ```
@@ -266,6 +266,39 @@ import { Provider } from 'react-redux'
 import store from "./store.jsx"
 ```
 
+* Now we have to connect our props to each component change your main.jsx file to match this format
+```
+import React from 'react';
+import { render } from 'react-dom';
+import { connect } from "react-redux"
+
+class Main extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {  }
+    }
+
+    componentDidMount() {
+    }
+
+
+    render() {
+        return <div>
+            My React site!!
+        </div>
+    }
+}
+
+const mapStateToProps = (state) => {
+    return state
+}
+
+export default connect(mapStateToProps)(Main)
+```
+
+* Now you can dispatch actions by importing the function from actions.jsx and then calling this.props.dispatch(functionName)
+
 ### Axios
 
 * Now that we have incorporated redux into our app, we can add our HTTP client.
@@ -296,8 +329,33 @@ export function getBtcPrice() {
 * Here axios pings coincap.io/global and returns a response, then we dispatch the bitcoin price from the response to our reducer of type "GET_BTC_PRICE.  We then set up a reducer method to handle the data as follows:
 
 ```
+...
+switch (action.type) {
+        case "GET_BTC_PRICE": {
+            return {
+                state,
+                btcPrice: action.data
+            }
+        }
+    }
+...
+```
+
+### Bootstrap
+
+* Now that we have all our components installed, it's time to setup bootstrap
 
 ```
+npm install react-bootstrap --save
+```
+
+* In the 'head' tag of 'index.html' add this line
+```
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+```
+
+* Now you will be able to use Bootstrap in your web app!
+
 
 
 
