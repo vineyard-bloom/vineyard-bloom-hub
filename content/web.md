@@ -46,7 +46,7 @@ src/
 	  component1.jsx
 	  component2.jsx
    actions.jsx
-   reducer.jsx
+   reducer.jsx (optional)
    store.jsx
    config.js
    app.js
@@ -102,7 +102,8 @@ module.exports = {
     devServer: {
         publicPath: "/",
         contentBase: "./public",
-        hot: true
+        port: 3000,
+        historyApiFallback: true
     },
 };
 ```
@@ -154,6 +155,8 @@ class Main extends React.Component {
     }
 }
 
+export default Main
+
 ```
 
 * In your 'src/' folder create a file called 'index.jsx' this is where all the routing will be handled.  Add this code to it
@@ -194,6 +197,7 @@ ReactDOM.render(<App />,document.getElementById('root'));
 <div id="root">
 
 </div>
+<script type="text/javascript" src="bundle.js"></script>
 </body>
 </html>
 ```
@@ -202,7 +206,7 @@ ReactDOM.render(<App />,document.getElementById('root'));
 
 * In your package.json file add two 'scripts' entries:
 ```
-"dev": "webpack-dev-server",
+"dev": "webpack && webpack-dev-server --hot --inline"",
 ```
 ```
 "start": "webpack -w"
@@ -210,10 +214,90 @@ ReactDOM.render(<App />,document.getElementById('root'));
 
 * Now run 'npm run start' and you should see 'My React Site!' displayed on the page
 
+### Redux
+
+* Now that we have a basic React web app working, it's time to add Redux
+
+```
+npm i redux react-redux redux-promise-middleware redux-thunk --save
+```
+
+* Create a new file called store.jsx inside your src folder. Inside this folder add this code
+```
+import { applyMiddleware, compose, createStore } from "redux"
+import promise from "redux-promise-middleware" // Promise middleware for redux
+import thunk from 'redux-thunk'; // Thunk allows functions to be passed through redux
+
+const middleware = compose(applyMiddleware(promise(), thunk))
+
+export default createStore(reducer, middleware)
 
 
+function reducer(state = {}, action) {
 
+    switch (action.type) {
+        case "ACTION": {
+            return {
+                state,
+                propName: action.data
+            }
+        }
+    }
 
+    return state
+}
+
+```
+
+* At the top where I specified the file structure I mentioned the reducer class was optional.  For now we are putting it in the store.  You can separate this out into files or a directory of files if you would like.
+
+* Open your 'src/components/index.jsx' file and change the last line to match this
+```
+ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.getElementById('root'));
+```
+
+* Also make sure to use the correct imports
+```
+import { Provider } from 'react-redux'
+import store from "./store.jsx"
+```
+
+### Axios
+
+* Now that we have incorporated redux into our app, we can add our HTTP client.
+
+```
+npm i axios --save
+```
+
+* Inside your src directory, create a file called 'actions.jsx' (This is another case if you prefer you can create a directory of files instead of one file)
+
+* Here is an example of an action getting the bitcoin price from coincap
+```
+import axios from "axios";
+
+export function getBtcPrice() {
+    return function (dispatch) {
+        return axios.get('http://www.coincap.io/global')
+            .then((response) => {
+                dispatch({ type: "GET_BTC_PRICE", payload: response.data.btcPrice })
+            })
+            .catch((err) => {
+                console.log('Error in getBtcPrice', err)
+            })
+    }
+}
+```
+
+* Here axios pings coincap.io/global and returns a response, then we dispatch the bitcoin price from the response to our reducer of type "GET_BTC_PRICE.  We then set up a reducer method to handle the data as follows:
+
+```
+
+```
 
 
 
