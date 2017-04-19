@@ -8,6 +8,8 @@
 
 * Webpack - Module bundler which takes modules with dependencies and generates static assets by bundling them together based on some configuration
 
+* Babel - 5
+
 * Redux - A predictable state container for JavaScript apps
 
 * Axios - Promise based HTTP client
@@ -29,10 +31,21 @@
 ## Project Structure
 
 ```
-*src
-**components
-***pages
-
+public/ *auto generated*
+src/
+   components/
+      pages/
+	     main.jsx
+	     page1.jsx
+	     page2.jsx
+	  component1.jsx
+	  component2.jsx
+	  
+   actions.jsx
+   store.jsx
+   config.js
+   index.html
+   index.js
 ```
 
 
