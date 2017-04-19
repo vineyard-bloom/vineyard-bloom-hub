@@ -45,6 +45,9 @@ src/
    config.js
    index.html
    index.js
+.babelrc
+package.json
+webpack.config.js
 ```
 
 
