@@ -56,19 +56,28 @@ webpack.config.js
 ## Project Setup
 
 * First create your directory
-```mkdir *project name*```
-```cd *project name*```
+```
+mkdir *project name*
+```
+```
+cd *project name*
+```
 
 * Next initialize npm and start adding packages
-```npm init```
-```npm i --save-dev webpack webpack-dev-server```
+```
+npm init
+```
+```
+npm i --save-dev webpack webpack-dev-server
+```
 
 * Now we need to create a webpack config file
 ```touch webpack.config.js```
 
 * Inside 'webpack.config.js' add this code
 
-```module.exports = {
+```
+module.exports = {
   context: __dirname + "/app",
 
   entry: "./js/app.js",
@@ -77,9 +86,45 @@ webpack.config.js
     filename: "app.js",
     path: __dirname + "/public",
   }
-};```
+};
+```
 
 * This tells webpack that our main application file (app.js) is the entry point and the bundled application should be output to the public folder
+
+* Next we need to add Babel
+```npm i --save-dev babel-loader babel-core babel-preset-es2015 babel-preset-react```
+
+* We must now create a '.babelrc' file in the project root and add presets
+```
+touch .babelrc
+```
+```
+{
+  "presets": [
+    "es2015",
+    "react"
+  ]
+}
+```
+
+* Also, add a js/jsx loader to your 'webpack.config.js' file
+```
+...
+  resolve: {
+    extensions: ['', '.js', '.jsx', '.json']
+  },
+  module: {
+    loaders: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loaders: ["babel-loader"]
+      }
+    ]
+  }
+...
+```
+
 
 
 
