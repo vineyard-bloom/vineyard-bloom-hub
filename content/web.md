@@ -36,10 +36,12 @@
 
 ```
 public/
+   images/
    styles/
       main.css
    index.html
 src/
+   helpers/
    components/
       pages/
 	     main.jsx
