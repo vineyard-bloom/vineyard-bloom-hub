@@ -167,8 +167,10 @@ export default Main
 ```
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Main from './components/pages/main.jsx';
+import Component1 from './components/pages/component1.jsx';
+import Component2 from './components/pages/component2.jsx';
 
 class App extends React.Component {
 
@@ -176,7 +178,11 @@ class App extends React.Component {
     render() {
         return (
             <BrowserRouter>
-                <Route path='/' component={Main}/>
+                <Switch>
+                    <Route exact path='/' component={Main}/>
+                    <Route path='/component1' component={Component1}/>
+                    <Route path='/component2' component={Component2}/>
+                </Switch>
             </BrowserRouter>
         )
     }
