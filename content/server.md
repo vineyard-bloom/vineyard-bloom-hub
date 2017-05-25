@@ -12,7 +12,7 @@
 
 * For every configuration file a server uses, there should be either a default or sample configuration file.  These files should not be edited on deployment.
 
-* A default configuration has ```-default``` appended to the file name such as ```config-default.json```.  Default configuration files are loaded first and then overrided by an optional configuration file.
+* A default configuration has ```-default``` appended to the file name such as ```config-default.json```.  Default configuration files are loaded first and then overriden by an optional configuration file.
 
 * A sample configuration file has ```-sample``` appended to the file name such as ```config-sample.json```.  Sample configuration files are not read by the server. A copy without ```-sample``` must be created for the server to run.
 
@@ -43,8 +43,6 @@
 * A web service should never return a redirect (any HTTP status code within the ```300``` range).  Redirects are an HTML UX mechanic.
 
 * Unless a web service is only consumed by a single website or by an internal server infrastructure, web services must support versioning and have a required version parameter.
-
-* Web service URLs should be only lowercase and use hyphens to separate words.  Do not use underscores in URLs.
 
 * Web service URL paths must be distinctly separate from static content URL paths.
 
@@ -107,7 +105,7 @@
 
 ### Node.js
 
-* Never serve static content from Node.js.  Use a dedicated HTTP daemon like Nginx or Apache.
+* Do not serve static content from Node.js.  Use a dedicated HTTP daemon like Nginx or Apache.
 
 * Always lock dependencies to a major version using either exact versions or the carot symbol
 
