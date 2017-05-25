@@ -1,10 +1,11 @@
 # Server Development Guidelines
 
+
 ## Configuration
 
 * Every server project should have a ```config``` folder with configuration files.
 
-* Config files must be either JSON or YAML, not code.
+* Config files should be either JSON or YAML, not code.
 
 * Divide sensitive and non-sensitive configuration into separate files.
 
@@ -14,7 +15,7 @@
 
 * A default configuration has ```-default``` appended to the file name such as ```config-default.json```.  Default configuration files are loaded first and then overriden by an optional configuration file.
 
-* A sample configuration file has ```-sample``` appended to the file name such as ```config-sample.json```.  Sample configuration files are not read by the server. A copy without ```-sample``` must be created for the server to run.
+* A sample configuration file has ```-sample``` appended to the file name such as ```config-sample.json```.  Sample configuration files are not read by the server. A copy without ```-sample``` should be created for the server to run.
 
 * Configuration should not be stored in OS environment variables.
 
@@ -42,9 +43,9 @@
 
 * A web service should never return a redirect (any HTTP status code within the ```300``` range).  Redirects are an HTML UX mechanic.
 
-* Unless a web service is only consumed by a single website or by an internal server infrastructure, web services must support versioning and have a required version parameter.
+* Unless a web service is only consumed by a single website or by an internal server infrastructure, web services should support versioning and have a required version parameter.
 
-* Web service URL paths must be distinctly separate from static content URL paths.
+* Web service URL paths should be distinctly separate from static content URL paths.
 
     * Bad: `/images/` and `/users`
     
@@ -62,7 +63,9 @@
     
     * Good: `app/run`
     
-* Keep in mind that while tradition has been to write HTTP keywords in all caps, the official HTTP 1 spec is case-insensitive, and the HTTP 2 spec is exclusively lowercase. The future convention of HTTP will be to write `post`, not `POST`. 
+* Keep in mind that while tradition has been to write HTTP keywords in all caps, the official HTTP 1 spec is case-insensitive, and the HTTP 2 spec is exclusively lowercase. The future convention of HTTP will be to write `post`, not `POST`.
+ 
+* All web services should support CORS.
 
 ### Implementation
 
