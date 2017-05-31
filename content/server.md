@@ -20,6 +20,13 @@
 * Configuration should not be stored in OS environment variables.
 
 
+## Architecture
+
+* A project repo should not contain both client and server code.
+
+* Client projects should not depend on server projects and vice versa.
+
+
 ## Development
 
 * A server project only needs to run on Linux for production, but should support Linux, Mac, and Windows for local development.
