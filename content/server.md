@@ -85,7 +85,7 @@
        
     * When the response code catches an exception without an HTTP status code, the response status code should be ```500```.     
     
-    * [Vineyard Lawn](https://github.com/silentorb/vineyard-lawn) is a thin web service layer that provides all of these features.
+    * [Vineyard Lawn](https://github.com/vineyard-bloom/vineyard-lawn) is a thin web service layer that provides all of these features.
 
 
 ## Code
