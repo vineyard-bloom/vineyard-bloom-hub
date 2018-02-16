@@ -1,1 +1,11 @@
 .idea
+node_modules
+npm-*
+**/*.js
+**/*.d.ts
+**/*.js.map
+test/**/*.js
+test/**/*.d.ts
+config.*
+package-lock.json
+yarn*

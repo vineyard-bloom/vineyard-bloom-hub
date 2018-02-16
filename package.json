@@ -1,0 +1,23 @@
+{
+  "name": "vineyard-bloom-hub",
+  "version": "1.0.0-beta.0",
+  "description": "",
+  "main": "src/index.js",
+  "types": "src/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "git@github.com:vineyard-bloom/vineyard-docs.git",
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "vineyard-docs": "vineyard-bloom/vineyard-docs#1.0.0-beta"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.0.4",
+    "@types/mocha": "^2.2.40",
+    "chai": "^4.1.2",
+    "mocha": "^3.2.0",
+    "source-map-support": "^0.4.14"
+  }
+}
