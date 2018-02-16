@@ -1,16 +1,16 @@
 digraph G {
 
-Blockchain -> {
-    Bitcoin
-    Ethereum
-    Minotaur
-}
-
 Ground -> {
     Accounting
     Currency
     Minotaur
     Users
 
+}
+
+Blockchain -> {
+    Bitcoin
+    Ethereum
+    Minotaur
 }
 }

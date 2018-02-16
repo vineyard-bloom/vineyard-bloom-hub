@@ -15,7 +15,7 @@
 | [**Minotaur**](https://github.com/vineyard-bloom/vineyard-minotaur) | Blockchain monitoring |
 | [**Currency**](https://github.com/vineyard-bloom/vineyard-currency) | Exchange rate aggregation and conversion |
 | [**Cron**](https://github.com/vineyard-bloom/vineyard-cron) | Repeated tasks |
-| [**Accounting**](https://github.com/vineyard-bloom/vineyard-) | Account balance and ledger |
+| [**Accounting**](https://github.com/vineyard-bloom/vineyard-accounting) | Account balance and ledger |
 | [**Docs**](https://github.com/vineyard-bloom/vineyard-docs) | Documentation generation |
 
 ### Dependency Graph
