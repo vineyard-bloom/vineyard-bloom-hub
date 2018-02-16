@@ -19,6 +19,8 @@
 | [**Docs**](https://github.com/vineyard-bloom/vineyard-docs) | Documentation generation |
 
 ### Dependency Graph
+
+Most Vineyard libraries can be used independently.  Here are the cross dependencies between vineyard libraries:
 ![](../diagrams/vineyard-dependency-graph.svg)
 
 ## Bloom Libraries
