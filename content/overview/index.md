@@ -6,6 +6,7 @@
 
 | Name  | Description |
 |---|---|
+| [**Server Templates**](https://github.com/vineyard-bloom/vineyard-server-template) | Templates for new projects |
 | [**Lawn**](https://github.com/vineyard-bloom/vineyard-lawn) | Web service creation |
 | [**Ground**](https://github.com/vineyard-bloom/vineyard-ground) | SQL ORM |
 | [**Users**](https://github.com/vineyard-bloom/vineyard-users) | Authentication |
@@ -15,7 +16,7 @@
 | [**Minotaur**](https://github.com/vineyard-bloom/vineyard-minotaur) | Blockchain monitoring |
 | [**Currency**](https://github.com/vineyard-bloom/vineyard-currency) | Exchange rate aggregation and conversion |
 | [**Cron**](https://github.com/vineyard-bloom/vineyard-cron) | Repeated tasks |
-| [**Accounting**](https://github.com/vineyard-bloom/vineyard-accounting) | Account balance and ledger |
+| [**Accounting**](https://github.com/vineyard-bloom/vineyard-accounting) | Account ledger |
 | [**Docs**](https://github.com/vineyard-bloom/vineyard-docs) | Documentation generation |
 
 ### Dependency Graph
