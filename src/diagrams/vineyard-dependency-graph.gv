@@ -1,16 +1,19 @@
 digraph G {
 
-Ground -> {
-    Accounting
-    Currency
-    Minotaur
-    Users
+    Data -> {
+        Minotaur
+    }
 
-}
+    Ground -> {
+        Accounting
+        Currency
+        Users
+    }
 
-Blockchain -> {
-    Bitcoin
-    Ethereum
-    Minotaur
-}
+    Blockchain -> {
+        Bitcoin
+        Ethereum
+        Minotaur
+    }
+
 }
