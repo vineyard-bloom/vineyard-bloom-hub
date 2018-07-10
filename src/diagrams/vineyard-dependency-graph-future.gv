@@ -1,0 +1,15 @@
+digraph G {
+
+    Data -> {
+        Minotaur
+        Users
+        Ground
+    }
+
+    Blockchain -> {
+        Bitcoin
+        Ethereum
+        Minotaur
+    }
+
+}

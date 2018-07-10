@@ -22,7 +22,12 @@
 ### Dependency Graph
 
 Most Vineyard libraries can be used independently.  Here are the cross dependencies between vineyard libraries:
+
+#### Current
 ![](../diagrams/vineyard-dependency-graph.svg)
+
+#### Future
+![](../diagrams/vineyard-dependency-graph-future.svg)
 
 ## Bloom Libraries
 
